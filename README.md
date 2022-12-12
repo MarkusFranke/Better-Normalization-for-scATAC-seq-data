@@ -4,6 +4,10 @@ Authors: Pia Baronetzky, George Tsitsiridis, Niklas Kemper, Markus Franke
 Supervisor: Maria Colomé-Tatché
 Advisor: Maria Richter
 
+Author: Yasmine Zakaria Afify, Pauline Nickel, Niklas Bühler, Markus Franke  
+Supervisor: Prof. Dr. Julien Gagneur  
+Advisor: Pedro da Silva  
+
 The progressing development of experimental techniques to investigate chromatin accessibility in single cells demands for suitable computational tools to analyze this data type. Recently, methods have emerged to do so, mainly focusing on quality control and how to best cluster the cells based on their shared chromatin openness. However, in a PCA, it can often be observed that the first component corresponds to library size, which needs to be normalized for. In scRNA-seq data, it has been shown that simple library-size normalization is not sufficient to distinguish technical from biological variation.
 
 To handle this, a plethora of normalization techniques have been developed for scRNA-seq data, improving the ability to differ biological from technical variance. For example, the theory behind one prominent technique is that cells from a cell type will have similar library sizes. In line with that, it has been observed that cells also differ in their chromatin openness, e.g. stem cells showing overall higher chromatin openness than differentiated cells.
