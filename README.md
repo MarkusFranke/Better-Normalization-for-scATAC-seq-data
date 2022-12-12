@@ -1,9 +1,5 @@
 # Preprocessing and downstream analysis of scATAC-seq data
 
-Authors: Pia Baronetzky, George Tsitsiridis, Niklas Kemper, Markus Franke
-Supervisor: Maria Colomé-Tatché
-Advisor: Maria Richter
-
 Author: Pia Baronetzky, George Tsitsiridis, Niklas Kemper, Markus Franke  
 Supervisor: Maria Colomé-Tatché  
 Advisor: Maria Richter
