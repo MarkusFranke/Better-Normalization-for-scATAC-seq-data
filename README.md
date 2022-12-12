@@ -1,9 +1,7 @@
 # Preprocessing and downstream analysis of scATAC-seq data
 
 Authors: Pia Baronetzky, George Tsitsiridis, Niklas Kemper, Markus Franke
-
 Supervisor: Maria Colomé-Tatché
-
 Advisor: Maria Richter
 
 The progressing development of experimental techniques to investigate chromatin accessibility in single cells demands for suitable computational tools to analyze this data type. Recently, methods have emerged to do so, mainly focusing on quality control and how to best cluster the cells based on their shared chromatin openness. However, in a PCA, it can often be observed that the first component corresponds to library size, which needs to be normalized for. In scRNA-seq data, it has been shown that simple library-size normalization is not sufficient to distinguish technical from biological variation.
