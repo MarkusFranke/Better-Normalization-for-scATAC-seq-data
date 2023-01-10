@@ -1,0 +1,29 @@
+name: comp-methods-env
+channels:
+  - conda-forge
+  - r
+dependencies:
+  - conda-forge::python=3.10
+  - pandas
+  - numpy
+  - matplotlib
+  - jupyter
+  - jupyterlab
+  - ipywidgets
+  - seaborn
+  - scikit-learn
+  - conda-forge::leidenalg
+  - bioconda::bioconductor-scdblfinder=1.8.0
+  - bioconda::bioconductor-scry=1.6.0
+  - bioconda::bioconductor-scran=1.22.1
+  - bioconda::bioconductor-glmgampoi=1.6.0
+  - pip
+  - pip:
+      - umap-learn==0.5.2
+      - anndata==0.8.0
+      - scanpy==1.9.1
+      - anndata2ri==1.1
+      - rpy2==3.5.3
+      - session_info
+      - episcanpy
+      - leidenalg
