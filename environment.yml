@@ -12,6 +12,7 @@ dependencies:
   - ipywidgets
   - seaborn
   - scikit-learn
+  - pytest=7.2.0
   - conda-forge::leidenalg
   - bioconda::bioconductor-scdblfinder=1.8.0
   - bioconda::bioconductor-scry=1.6.0

@@ -1,3 +1,4 @@
+install.packages('logger')
 install.packages('SoupX', version='1.6.1')
 install.packages('sctransform', version='0.3.3')
 install.packages('glmpca', version='0.2.0')
