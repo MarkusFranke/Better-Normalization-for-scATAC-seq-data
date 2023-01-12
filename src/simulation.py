@@ -1,13 +1,13 @@
 import anndata as ad
 import anndata2ri
+import pandas as pd
 import rpy2.rinterface_lib.callbacks as rcb
 import rpy2.robjects as ro
 import logging
+from scipy import sparse
 
 logger = logging.getLogger()
 rcb.logger.setLevel(logging.ERROR)
-ro.pandas2ri.activate()
-anndata2ri.activate()
 
 
 class Simulator:
@@ -22,6 +22,7 @@ class Simulator:
         ro.globalenv[self.__r_sim_obj_name] = ro.r("newsimATACCount()")
 
     def __enter__(self):
+        ro.pandas2ri.activate()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -30,6 +31,7 @@ class Simulator:
             del ro.globalenv[self.__r_sim_obj_name]
         if self.__r_original_name in ro.globalenv:
             del ro.globalenv[self.__r_original_name]
+        ro.pandas2ri.deactivate()
 
     @property
     def parameters(self):
@@ -64,27 +66,48 @@ class Simulator:
         :param adata:
         :return:
         """
-        ro.globalenv[self.__r_original_name] = adata
+        ro.globalenv[self.__r_original_name] = anndata2ri.py2rpy(adata)
         ro.globalenv[self.__r_sim_obj_name] = ro.r('simATACEstimate(%s)' % self.__r_original_name)
 
-    def simulate(self) -> ad.AnnData:
+    def simulate_window_mtx(self) -> ad.AnnData:
         """
-        Simulate data.
+        Simulate bin by cell matrix.
         :return: AnnData object that contains the given simulation
         """
-        return ro.r('simATACSimulate(%s)' % self.__r_sim_obj_name)
+        return anndata2ri.rpy2py(ro.r('simATACSimulate(%s)' % self.__r_sim_obj_name))
+
+    def simulate_peak_mtx(self, peak_num=5000) -> ad.AnnData:
+        """
+        Simulate peak by cell matrix.
+        :return: AnnData object that contains the given simulation
+        """
+        ro.r('sim <- simATACSimulate(%s)' % self.__r_sim_obj_name)
+        tmp: ad.AnnData = anndata2ri.rpy2py(ro.globalenv['sim'])
+        try:
+            ro.r('mtx <- simATACgetPeakByCell(sim, peak.num=%s)' % peak_num)
+            mtx: sparse.spmatrix = anndata2ri.rpy2py(ro.globalenv['mtx']).T
+            peak_names = list(ro.r('rownames(mtx)'))
+            adata = ad.AnnData(mtx, var=pd.DataFrame(index=peak_names), obs=tmp.obs.copy())
+        finally:
+            del ro.globalenv['sim']
+            del ro.globalenv['mtx']
+        return adata
 
 
-def simulate(adata: ad.AnnData, **sim_parameters):
+def simulate(adata: ad.AnnData, is_peak_mtx: bool = False, peak_num=5000, **sim_parameters):
     with Simulator() as simulator:
         simulator.estimate(adata)
         for param_name, param_val in sim_parameters.items():
             simulator[param_name] = param_val
-        adata_sim = simulator.simulate()
+        if is_peak_mtx:
+            adata_sim = simulator.simulate_peak_mtx(peak_num=peak_num)
+        else:
+            adata_sim = simulator.simulate_window_mtx()
         return adata_sim
 
 
-def simulate_by_annotation(adata: ad.AnnData, annotation_name: str = 'cell_type', **sim_parameters) -> ad.AnnData:
+def simulate_by_annotation(adata: ad.AnnData, annotation_name: str = 'cell_type', is_peak_mtx: bool = False,
+                           peak_num=5000, **sim_parameters) -> ad.AnnData:
     ncells = 100
     if annotation_name not in adata.obs:
         raise ValueError('adata does not have an annotation called %s' % annotation_name)
@@ -99,10 +122,13 @@ def simulate_by_annotation(adata: ad.AnnData, annotation_name: str = 'cell_type'
                 if param_name == 'nCells':
                     ncells = param_val
                 simulator[param_name] = param_val
-            adata_sim = simulator.simulate()
+            if is_peak_mtx:
+                adata_sim = simulator.simulate_peak_mtx(peak_num=peak_num)
+            else:
+                adata_sim = simulator.simulate_window_mtx()
             adata_sim.obs[annotation_name] = [annotation_value] * ncells
             simulations.append(adata_sim)
-
     adata_sim = ad.concat(simulations, axis=0, index_unique='-')
-    adata_sim.var = adata.var.copy()
+    if not is_peak_mtx:
+        adata_sim.var = adata.var.copy()
     return adata_sim

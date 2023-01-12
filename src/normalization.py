@@ -9,8 +9,6 @@ import numpy as np
 
 logger = logging.getLogger()
 rcb.logger.setLevel(logging.ERROR)
-ro.pandas2ri.activate()
-anndata2ri.activate()
 
 
 def log1pPF(adata):
@@ -31,32 +29,38 @@ def log1pPF(adata):
 
 
 def scran(adata):
-    # Preliminary clustering for differentiated normalisation
-    adata_pp = adata.copy()
-    epi.pp.normalize_total(adata_pp)
-    epi.pp.log1p(adata_pp)
-    epi.pp.pca(adata_pp, n_comps=15)
-    epi.pp.neighbors(adata_pp)
-    epi.tl.leiden(adata_pp, key_added="groups")
+    try:
+        ro.pandas2ri.activate()
+        anndata2ri.activate()
+        # Preliminary clustering for differentiated normalisation
+        adata_pp = adata.copy()
+        epi.pp.normalize_total(adata_pp)
+        epi.pp.log1p(adata_pp)
+        epi.pp.pca(adata_pp, n_comps=15)
+        epi.pp.neighbors(adata_pp)
+        epi.tl.leiden(adata_pp, key_added="groups")
 
-    data_mat = adata.X.T
-    # convert to CSC if possible. See https://github.com/MarioniLab/scran/issues/70
-    if sc.sparse.issparse(data_mat):
-        if data_mat.nnz > 2 ** 31 - 1:
-            data_mat = data_mat.tocoo()
-        else:
-            data_mat = data_mat.tocsc()
-    ro.globalenv["data_mat"] = data_mat
-    ro.globalenv["input_groups"] = adata_pp.obs["groups"]
-    del adata_pp
+        data_mat = adata.X.T
+        # convert to CSC if possible. See https://github.com/MarioniLab/scran/issues/70
+        if sc.sparse.issparse(data_mat):
+            if data_mat.nnz > 2 ** 31 - 1:
+                data_mat = data_mat.tocoo()
+            else:
+                data_mat = data_mat.tocsc()
+        ro.globalenv["data_mat"] = data_mat
+        ro.globalenv["input_groups"] = adata_pp.obs["groups"]
+        del adata_pp
 
-    ro.r("source('r/normalization.R')")
-    size_factors = ro.r("normScran(%s, %s)" % ('data_mat', 'input_groups'))
-    del ro.globalenv["data_mat"]
-    del ro.globalenv["input_groups"]
+        ro.r("source('r/normalization.R')")
+        size_factors = ro.r("normScran(%s, %s)" % ('data_mat', 'input_groups'))
+        del ro.globalenv["data_mat"]
+        del ro.globalenv["input_groups"]
 
-    adata.obs["scran_size_factors"] = size_factors
-    scran = adata.X / adata.obs["scran_size_factors"].values[:, None]
-    adata.layers["scran_normalization"] = sparse.csr_matrix(epi.pp.log1p(scran))
-    print("scran_normalization layer added")
-    print("scran_size_factors obs added")
+        adata.obs["scran_size_factors"] = size_factors
+        scran = adata.X / adata.obs["scran_size_factors"].values[:, None]
+        adata.layers["scran_normalization"] = sparse.csr_matrix(epi.pp.log1p(scran))
+        print("scran_normalization layer added")
+        print("scran_size_factors obs added")
+    finally:
+        ro.pandas2ri.deactivate()
+        anndata2ri.deactivate()
