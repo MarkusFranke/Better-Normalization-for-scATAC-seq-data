@@ -2,6 +2,7 @@ import data
 from pathlib import Path
 
 MOUSE_BRAIN_BIN_MTX_SHAPE = (3880, 30877)
+MOUSE_BRAIN_PEAK_MTX_SHAPE = (3880, 189587)
 
 
 def test_get_annotation_per_barcode():
@@ -17,13 +18,18 @@ def test_mousebrain_window_mtx_new():
 
 def test_mousebrain_window_mtx_save():
     epidata = data.MouseBrainDataset()
-    adata = epidata.get_window_mtx(save=True, bin_matrix_path=Path('data/mouse_brain_5k/bin_by_cell.h5ad'))
+    adata = epidata.get_window_mtx(save=True, matrix_path=Path('data/mouse_brain_5k/bin_by_cell.h5ad'))
     assert adata.shape == MOUSE_BRAIN_BIN_MTX_SHAPE
 
 def test_mousebrain_window_mtx_load():
     epidata = data.MouseBrainDataset()
     adata = epidata.load_mtx(matrix_path=Path('data/mouse_brain_5k/bin_by_cell.h5ad'))
     assert adata.shape == MOUSE_BRAIN_BIN_MTX_SHAPE
+
+def test_mousebrain_peak_mtx_save():
+    epidata = data.MouseBrainDataset()
+    adata = epidata.get_peak_mtx(save=True, matrix_path=Path('data/mouse_brain_5k/peak_by_cell.h5ad'))
+    assert adata.shape == MOUSE_BRAIN_PEAK_MTX_SHAPE
 
 def test_mousebrain_window_mtx_load_annot():
     vals = ['cell_type', 'protocol', 'domain']
