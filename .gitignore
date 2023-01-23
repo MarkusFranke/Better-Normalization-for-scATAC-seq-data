@@ -93,4 +93,4 @@ fabric.properties
 /.ipynb_checkpoints/*
 data/*
 !data/README.md
-!data/simulation/*
+!data/simulation/templates/*
