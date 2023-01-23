@@ -1,0 +1,80 @@
+{
+  "cell_groups": [
+    {
+      "id": "CA",
+      "ncells": 50,
+      "lib_mean": 20
+    },
+    {
+      "id": "CB",
+      "ncells": 50,
+      "lib_mean": 20
+    },
+    {
+      "id": "CC",
+      "ncells": 50,
+      "lib_mean": 21
+    }
+  ],
+  "feature_groups": [
+    {
+      "id": "FA",
+      "proportion": 0.3
+    },
+    {
+      "id": "FB",
+      "proportion": 0.1
+    },
+    {
+      "id": "FC",
+      "proportion": 0.1
+    }
+  ],
+  "accessibility": [
+    {
+      "feature_group": "FA",
+      "cell_group": "CA",
+      "score": 0.3
+    },
+    {
+      "feature_group": "FA",
+      "cell_group": "CB",
+      "score": 0.6
+    },
+    {
+      "feature_group": "FA",
+      "cell_group": "CC",
+      "score": 0.9
+    },
+    {
+      "feature_group": "FB",
+      "cell_group": "CA",
+      "score": 0.9
+    },
+    {
+      "feature_group": "FB",
+      "cell_group": "CB",
+      "score": 0.1
+    },
+    {
+      "feature_group": "FB",
+      "cell_group": "CC",
+      "score": 0.5
+    },
+    {
+      "feature_group": "FC",
+      "cell_group": "CA",
+      "score": 0.3
+    },
+    {
+      "feature_group": "FC",
+      "cell_group": "CB",
+      "score": 0.3
+    },
+    {
+      "feature_group": "FC",
+      "cell_group": "CC",
+      "score": 0.3
+    }
+  ]
+}
