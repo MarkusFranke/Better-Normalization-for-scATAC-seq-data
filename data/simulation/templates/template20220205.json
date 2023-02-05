@@ -1,0 +1,416 @@
+{
+  "cell_groups": [
+    {
+      "id": "CA",
+      "ncells": 100
+    },
+    {
+      "id": "CB",
+      "ncells": 100
+    },
+    {
+      "id": "CC",
+      "ncells": 100
+    }
+  ],
+  "feature_groups": [
+    {
+      "id": "FA",
+      "proportion": 0.05
+    },
+    {
+      "id": "FB",
+      "proportion": 0.05
+    },
+    {
+      "id": "FC",
+      "proportion": 0.05
+    }
+  ],
+  "simulations": [
+    {
+      "id": "S0",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 14
+        },
+        {
+          "id": "CC",
+          "value": 14
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.7
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 13
+        },
+        {
+          "id": "CC",
+          "value": 12
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.7
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 14
+        },
+        {
+          "id": "CC",
+          "value": 14
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.011
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.44
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.77
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.011
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.44
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.77
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 13
+        },
+        {
+          "id": "CC",
+          "value": 13.86249648
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.011
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.44
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.77
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.011
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.44
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.77
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 14
+        },
+        {
+          "id": "CC",
+          "value": 14
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.014
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.56
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.98
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.014
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.56
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "lib_means": [
+        {
+          "id": "CA",
+          "value": 14
+        },
+        {
+          "id": "CB",
+          "value": 13
+        },
+        {
+          "id": "CC",
+          "value": 13.51457317
+        }
+      ],
+      "accessibilities": [
+        {
+          "cell_group": "CA",
+          "feature_group": "FA",
+          "score": 0.01
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FB",
+          "score": 0.4
+        },
+        {
+          "cell_group": "CA",
+          "feature_group": "FC",
+          "score": 0.7
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FA",
+          "score": 0.014
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FB",
+          "score": 0.56
+        },
+        {
+          "cell_group": "CB",
+          "feature_group": "FC",
+          "score": 0.98
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FA",
+          "score": 0.014
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FB",
+          "score": 0.56
+        },
+        {
+          "cell_group": "CC",
+          "feature_group": "FC",
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}
