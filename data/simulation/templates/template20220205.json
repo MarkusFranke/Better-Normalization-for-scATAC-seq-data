@@ -44,51 +44,51 @@
           "value": 14
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         }
       ]
     },
@@ -108,51 +108,51 @@
           "value": 12
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         }
       ]
     },
@@ -172,51 +172,51 @@
           "value": 14
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.011
+          "value": 0.011
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.44
+          "value": 0.44
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.77
+          "value": 0.77
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.011
+          "value": 0.011
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.44
+          "value": 0.44
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.77
+          "value": 0.77
         }
       ]
     },
@@ -236,51 +236,51 @@
           "value": 13.86249648
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.011
+          "value": 0.011
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.44
+          "value": 0.44
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.77
+          "value": 0.77
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.011
+          "value": 0.011
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.44
+          "value": 0.44
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.77
+          "value": 0.77
         }
       ]
     },
@@ -300,51 +300,51 @@
           "value": 14
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.014
+          "value": 0.014
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.56
+          "value": 0.56
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.98
+          "value": 0.98
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.014
+          "value": 0.014
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.56
+          "value": 0.56
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.98
+          "value": 0.98
         }
       ]
     },
@@ -364,51 +364,51 @@
           "value": 13.51457317
         }
       ],
-      "accessibilities": [
+      "scores": [
         {
           "cell_group": "CA",
           "feature_group": "FA",
-          "score": 0.01
+          "value": 0.01
         },
         {
           "cell_group": "CA",
           "feature_group": "FB",
-          "score": 0.4
+          "value": 0.4
         },
         {
           "cell_group": "CA",
           "feature_group": "FC",
-          "score": 0.7
+          "value": 0.7
         },
         {
           "cell_group": "CB",
           "feature_group": "FA",
-          "score": 0.014
+          "value": 0.014
         },
         {
           "cell_group": "CB",
           "feature_group": "FB",
-          "score": 0.56
+          "value": 0.56
         },
         {
           "cell_group": "CB",
           "feature_group": "FC",
-          "score": 0.98
+          "value": 0.98
         },
         {
           "cell_group": "CC",
           "feature_group": "FA",
-          "score": 0.014
+          "value": 0.014
         },
         {
           "cell_group": "CC",
           "feature_group": "FB",
-          "score": 0.56
+          "value": 0.56
         },
         {
           "cell_group": "CC",
           "feature_group": "FC",
-          "score": 0.98
+          "value": 0.98
         }
       ]
     }

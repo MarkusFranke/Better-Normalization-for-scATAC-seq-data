@@ -40,6 +40,11 @@ def mouse_brain_adata() -> ad.AnnData:
 
 
 @pytest.fixture
+def da_template() -> str:
+    return "data/simulation/templates/template20220205.json"
+
+
+@pytest.fixture
 def estimated_params(mouse_brain_adata) -> sim.Params:
     mouse_brain_adata = mouse_brain_adata[mouse_brain_adata.obs['cell_type'] == 'L5 IT']
     with sim.Simulator() as simulator:
@@ -69,6 +74,7 @@ def test_estimate_simulate(mouse_brain_adata):
         assert mouse_brain_adata.shape[0] == simulator[key]
         adata_sim = simulator.simulate()
         assert adata_sim.shape == mouse_brain_adata.shape
+
 
 def test_simulate_by_annotation(mouse_brain_adata):
     annotation_name = 'cell_type'
@@ -101,3 +107,12 @@ def test_set_simulation_params_estimate(mouse_brain_adata):
 
 def test_simulate_da(simple_da_config, mouse_brain_adata, estimated_params):
     adata_sim = sim.simulate_da(params=estimated_params, config=simple_da_config)
+
+
+def test_read_da_from_file(da_template):
+    cfgs = sim.DAConfig.from_template(da_template)
+    for k, cg in cfgs['S0'].cell_groups.items():
+        assert cg.lib_mean == 14
+        for acc in cg.accessibilities:
+            if cg.id == 'CA' and acc.feature_group_id == 'FA':
+                assert acc.score == 0.01
