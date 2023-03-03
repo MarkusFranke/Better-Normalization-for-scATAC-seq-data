@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import anndata as ad
+from sklearn.metrics import RocCurveDisplay
+
 
 def plot_count_distribution(adata: ad.AnnData, title: str):
     fig = plt.figure()
@@ -12,6 +14,7 @@ def plot_count_distribution(adata: ad.AnnData, title: str):
     data = adata.X.toarray().flatten()
     bins = np.arange(0, data.max() + 1.5) - 0.5
     ax.hist(data, log=True, bins=bins, edgecolor='black')
+
 
 def plot_count_mean_var(adata: ad.AnnData, title: str):
     means = np.apply_along_axis(np.mean, 1, adata.X.toarray())
@@ -32,3 +35,8 @@ def plot_count_mean_var(adata: ad.AnnData, title: str):
     ax.plot([x_min, x_max], [2 * x_min, 2 * x_max], color='black', linestyle='dotted', label='var = mean*2')
     ax.plot([x_min, x_max], [x_min / 2, x_max / 2], color='black', linestyle='dashed', label='var = mean/2')
     ax.legend()
+
+
+def plot_roc_curve(fpr, tpr, auc, key, ax):
+    display = RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=auc, estimator_name=key)
+    display.plot(ax=ax)

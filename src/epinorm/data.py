@@ -86,9 +86,9 @@ class EpiDataset():
 
 class MouseBrainDataset(EpiDataset):
 
-    def __init__(self):
+    def __init__(self, root="."):
         name = "5k_brain"
-        base_dir = Path('data/mouse_brain_5k/')
+        base_dir = Path(root) / Path('data/mouse_brain_5k/')
 
         peak_file = base_dir / "{}_peaks.narrowPeak".format(name)
         fragments_file = base_dir / "atac_v1_adult_brain_fresh_5k_fragments.tsv.gz"

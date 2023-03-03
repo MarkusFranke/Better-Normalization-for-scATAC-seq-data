@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import dataclasses
-from typing import List, Dict
 
 import anndata as ad
 import anndata2ri
@@ -12,6 +11,7 @@ import logging
 from scipy import sparse
 import numpy as np
 import copy
+from .diffacc.config import DAConfig
 
 logger = logging.getLogger()
 rcb.logger.setLevel(logging.ERROR)
@@ -145,61 +145,21 @@ class Params:
     noise_sd: float = None
 
 
-@dataclasses.dataclass
-class DACellGroup:
-    id: str
-    ncells: int
-    lib_mean: float
-    accessibilities: List[DAAccessibility] = None
-
-
-@dataclasses.dataclass
-class DAFeatureGroup:
-    """
-    """
-    id: str
-    proportion: float
-
-
-@dataclasses.dataclass
-class DAAccessibility:
-    """
-    """
-    feature_group_id: str
-    score: float
-
-    def __post_init__(self):
-        if 0 > self.score or self.score > 1:
-            raise ValueError('accessibility score has to be between 0 and 1')
-
-
-@dataclasses.dataclass
-class DAConfig:
-    cell_groups: Dict[str, DACellGroup]
-    feature_groups: Dict[str, DAFeatureGroup]
-
-    def __post_init__(self):
-        proportions = [fg.proportion for fg in self.feature_groups.values()]
-        for prop in proportions:
-            if 1 < prop or prop < 0:
-                raise ValueError('proportions cant be negative or grater than 1')
-        if sum(proportions) > 1:
-            raise ValueError('the total proportions need to sum up to maximum 1')
-
-        # validate feature group ids
-        for fg_id in [acc.feature_group_id for cg in self.cell_groups.values() for acc in cg.accessibilities]:
-            if fg_id not in self.feature_groups:
-                raise ValueError('feature group with id %s has not been defined' % fg_id)
-
-        for acc in self.cell_groups.values():
-            if len(acc.accessibilities) != len(self.feature_groups):
-                raise ValueError('each cell group should have the same amount of accesssibilities '
-                                 'as the number of feature groups')
+def simulate(adata: ad.AnnData, params: Params, is_peak_mtx: bool = False, peak_num=5000):
+    with Simulator() as simulator:
+        simulator.estimate(adata)
+        simulator.parameters = params
+        if is_peak_mtx:
+            adata_sim = simulator.simulate_peak_mtx(peak_num=peak_num)
+        else:
+            adata_sim = simulator.simulate_window_mtx()
+        return adata_sim
 
 
 def simulate_da(params: Params, config: DAConfig, seed=42) -> ad.AnnData:
     # define feature groups idxs
     rng = np.random.default_rng(seed)
+    params.seed = seed
 
     fg_to_idxs = {}
     total_idxs = np.array(range(len(params.non_zero_prob)))
@@ -212,6 +172,7 @@ def simulate_da(params: Params, config: DAConfig, seed=42) -> ad.AnnData:
 
     results = []
     for cell_group in config.cell_groups.values():
+        params.seed += 1
         accs = cell_group.accessibilities
         params_copy = copy.deepcopy(params)
         params_copy.ncells = cell_group.ncells
@@ -225,27 +186,17 @@ def simulate_da(params: Params, config: DAConfig, seed=42) -> ad.AnnData:
         with Simulator() as simulator:
             simulator.parameters = params_copy
             tmp = simulator.simulate_window_mtx()
-            tmp.obs['da_group'] = cell_group.id
+            tmp.obs['cell_group'] = cell_group.id
             results.append(tmp)
     tmp = ad.concat(results, axis=0, index_unique='-')
-    tmp.var['da_group'] = feature_group_names
+    tmp.var['feature_group'] = feature_group_names
     tmp.uns['simulation_params'] = params
     tmp.uns['da_config'] = config
     return tmp
 
 
-def simulate(adata: ad.AnnData, params: Params, is_peak_mtx: bool = False, peak_num=5000):
-    with Simulator() as simulator:
-        simulator.estimate(adata)
-        simulator.parameters = params
-        if is_peak_mtx:
-            adata_sim = simulator.simulate_peak_mtx(peak_num=peak_num)
-        else:
-            adata_sim = simulator.simulate_window_mtx()
-        return adata_sim
-
-
-def simulate_by_annotation(adata: ad.AnnData, params: Params, annotation_name: str = 'cell_type', is_peak_mtx: bool = False,
+def simulate_by_annotation(adata: ad.AnnData, params: Params, annotation_name: str = 'cell_type',
+                           is_peak_mtx: bool = False,
                            peak_num=5000) -> ad.AnnData:
     ncells = params.ncells
     if annotation_name not in adata.obs:
@@ -269,3 +220,8 @@ def simulate_by_annotation(adata: ad.AnnData, params: Params, annotation_name: s
     if not is_peak_mtx:
         adata_sim.var = adata.var.copy()
     return adata_sim
+
+
+def estimate_params(adata: ad.AnnData) -> Params:
+    with Simulator() as simulator:
+        return simulator.estimate(adata)

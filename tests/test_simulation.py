@@ -1,47 +1,43 @@
 import pytest
-import src.data as data
-import src.simulation as sim
+import epinorm.data as data
+import epinorm.simulation as sim
+import epinorm.diffacc.config as da_config
 from pathlib import Path
 import numpy as np
 import anndata as ad
 
 
 @pytest.fixture
-def simple_da_config() -> sim.DAConfig:
+def simple_da_config() -> da_config.DAConfig:
     cg_ids = ['CA', 'CB', 'CC']
     ncells = [50, 50, 50]
     lib_means = [20, 20, 20]
     cgs = {}
     for idx in range(len(cg_ids)):
-        cgs[cg_ids[idx]] = sim.DACellGroup(id=cg_ids[idx], ncells=ncells[idx], lib_mean=lib_means[idx])
+        cgs[cg_ids[idx]] = da_config.DACellGroup(id=cg_ids[idx], ncells=ncells[idx], lib_mean=lib_means[idx])
 
     proportions = [0.3, 0.2, 0.1]
     fg_ids = ['FA', 'FB', 'FC']
     fgs = {}
     for idx in range(len(fg_ids)):
-        fgs[fg_ids[idx]] = sim.DAFeatureGroup(id=fg_ids[idx], proportion=proportions[idx])
+        fgs[fg_ids[idx]] = da_config.DAFeatureGroup(id=fg_ids[idx], proportion=proportions[idx])
 
     scores = np.array([0.0, 0, 0.0])
     for cg in cgs.values():
         accs = []
         for idx, fg in enumerate(fgs.values()):
             score = scores[idx]
-            accs.append(sim.DAAccessibility(score=score, feature_group_id=fg.id))
+            accs.append(da_config.DAAccessibility(score=score, feature_group_id=fg.id))
         cg.accessibilities = accs
         scores = np.minimum(scores + 1, np.array([0.8] * len(scores)))
 
-    return sim.DAConfig(cell_groups=cgs, feature_groups=fgs)
+    return da_config.DAConfig(cell_groups=cgs, feature_groups=fgs)
 
 
 @pytest.fixture
 def mouse_brain_adata() -> ad.AnnData:
     epidata = data.MouseBrainDataset()
     return epidata.load_mtx(matrix_path=Path('data/mouse_brain_5k/bin_by_cell.h5ad'))
-
-
-@pytest.fixture
-def da_template() -> str:
-    return "data/simulation/templates/template20220205.json"
 
 
 @pytest.fixture
@@ -107,12 +103,3 @@ def test_set_simulation_params_estimate(mouse_brain_adata):
 
 def test_simulate_da(simple_da_config, mouse_brain_adata, estimated_params):
     adata_sim = sim.simulate_da(params=estimated_params, config=simple_da_config)
-
-
-def test_read_da_from_file(da_template):
-    cfgs = sim.DAConfig.from_template(da_template)
-    for k, cg in cfgs['S0'].cell_groups.items():
-        assert cg.lib_mean == 14
-        for acc in cg.accessibilities:
-            if cg.id == 'CA' and acc.feature_group_id == 'FA':
-                assert acc.score == 0.01

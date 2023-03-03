@@ -1,29 +1,29 @@
 {
   "cell_groups": [
     {
-      "id": "CA",
+      "id": "C_CONTROL",
       "ncells": 100
     },
     {
-      "id": "CB",
+      "id": "C_1",
       "ncells": 100
     },
     {
-      "id": "CC",
+      "id": "C_2",
       "ncells": 100
     }
   ],
   "feature_groups": [
     {
-      "id": "FA",
+      "id": "F_1",
       "proportion": 0.05
     },
     {
-      "id": "FB",
+      "id": "F_2",
       "proportion": 0.05
     },
     {
-      "id": "FC",
+      "id": "F_3",
       "proportion": 0.05
     }
   ],
@@ -32,62 +32,62 @@
       "id": "S0",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
+          "id": "C_1",
           "value": 14
         },
         {
-          "id": "CC",
+          "id": "C_2",
           "value": 14
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
+          "cell_group": "C_1",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
+          "cell_group": "C_1",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
+          "cell_group": "C_2",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
+          "cell_group": "C_2",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.7
         }
       ]
@@ -96,62 +96,62 @@
       "id": "S1",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
-          "value": 13
+          "id": "C_1",
+          "value": 15
         },
         {
-          "id": "CC",
-          "value": 12
+          "id": "C_2",
+          "value": 13
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
+          "cell_group": "C_1",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
+          "cell_group": "C_1",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
+          "cell_group": "C_2",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
+          "cell_group": "C_2",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.7
         }
       ]
@@ -160,62 +160,62 @@
       "id": "S2",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
+          "id": "C_1",
           "value": 14
         },
         {
-          "id": "CC",
+          "id": "C_2",
           "value": 14
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
-          "value": 0.011
+          "cell_group": "C_1",
+          "feature_group": "F_1",
+          "value": 0.05
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
-          "value": 0.44
+          "cell_group": "C_1",
+          "feature_group": "F_2",
+          "value": 0.48
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.77
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
-          "value": 0.011
+          "cell_group": "C_2",
+          "feature_group": "F_1",
+          "value": 0.05
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
-          "value": 0.44
+          "cell_group": "C_2",
+          "feature_group": "F_2",
+          "value": 0.48
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.77
         }
       ]
@@ -224,62 +224,62 @@
       "id": "S3",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
-          "value": 13
+          "id": "C_1",
+          "value": 15
         },
         {
-          "id": "CC",
-          "value": 13.86249648
+          "id": "C_2",
+          "value": 13
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
-          "value": 0.011
+          "cell_group": "C_1",
+          "feature_group": "F_1",
+          "value": 0.05
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
-          "value": 0.44
+          "cell_group": "C_1",
+          "feature_group": "F_2",
+          "value": 0.48
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.77
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
-          "value": 0.011
+          "cell_group": "C_2",
+          "feature_group": "F_1",
+          "value": 0.05
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
-          "value": 0.44
+          "cell_group": "C_2",
+          "feature_group": "F_2",
+          "value": 0.48
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.77
         }
       ]
@@ -288,62 +288,62 @@
       "id": "S4",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
+          "id": "C_1",
           "value": 14
         },
         {
-          "id": "CC",
+          "id": "C_2",
           "value": 14
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
-          "value": 0.014
+          "cell_group": "C_1",
+          "feature_group": "F_1",
+          "value": 0.3
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
-          "value": 0.56
+          "cell_group": "C_1",
+          "feature_group": "F_2",
+          "value": 0.8
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.98
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
-          "value": 0.014
+          "cell_group": "C_2",
+          "feature_group": "F_1",
+          "value": 0.3
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
-          "value": 0.56
+          "cell_group": "C_2",
+          "feature_group": "F_2",
+          "value": 0.8
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.98
         }
       ]
@@ -352,62 +352,62 @@
       "id": "S5",
       "lib_means": [
         {
-          "id": "CA",
+          "id": "C_CONTROL",
           "value": 14
         },
         {
-          "id": "CB",
-          "value": 13
+          "id": "C_1",
+          "value": 15
         },
         {
-          "id": "CC",
-          "value": 13.51457317
+          "id": "C_2",
+          "value": 13
         }
       ],
       "scores": [
         {
-          "cell_group": "CA",
-          "feature_group": "FA",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_1",
           "value": 0.01
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FB",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_2",
           "value": 0.4
         },
         {
-          "cell_group": "CA",
-          "feature_group": "FC",
+          "cell_group": "C_CONTROL",
+          "feature_group": "F_3",
           "value": 0.7
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FA",
-          "value": 0.014
+          "cell_group": "C_1",
+          "feature_group": "F_1",
+          "value": 0.3
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FB",
-          "value": 0.56
+          "cell_group": "C_1",
+          "feature_group": "F_2",
+          "value": 0.8
         },
         {
-          "cell_group": "CB",
-          "feature_group": "FC",
+          "cell_group": "C_1",
+          "feature_group": "F_3",
           "value": 0.98
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FA",
-          "value": 0.014
+          "cell_group": "C_2",
+          "feature_group": "F_1",
+          "value": 0.3
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FB",
-          "value": 0.56
+          "cell_group": "C_2",
+          "feature_group": "F_2",
+          "value": 0.8
         },
         {
-          "cell_group": "CC",
-          "feature_group": "FC",
+          "cell_group": "C_2",
+          "feature_group": "F_3",
           "value": 0.98
         }
       ]
